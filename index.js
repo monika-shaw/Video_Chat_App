@@ -27,7 +27,13 @@ io.on('connection', (socket)=>{
         socket.broadcast.emit('call ended')
     })
 
-    
+    socket.on('calluser', ({userToCall, signalData, from, name})=>{
+        io.to(userToCall).emit('calluser', {signal: signalData, from, name})
+    })
+
+    socket.on('answercall', (data)=>{
+        io.to(data.to).emit('answercall', data.signal)
+    })
 })
 server.listen(PORT, (err) => {
     if (err) {
