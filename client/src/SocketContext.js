@@ -34,7 +34,7 @@ const ContextProvider = ({ children }) => {
     }, [])
 
 
-    const anwerCall = () => {
+    const answerCall = () => {
         setCallAccepted(true)
         const peer = new Peer({
             initiator: false,
@@ -98,7 +98,7 @@ const ContextProvider = ({ children }) => {
         callEnded,
         me,
         callUser,
-        anwerCall,
+        answerCall,
         leaveCall,
     }}>
         {children}
